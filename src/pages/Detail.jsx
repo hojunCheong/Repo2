@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./Detail.module.css";
 
-const SERVER_URL_DETAIL_PAGE = "http://localhost:3001/v1/chart/detail/";
+const SERVER_URL_DETAIL_PAGE = "http://localhost:3300/v1/chart/detail/";
 
 function Detail() {
   const [detail, setDetail] = useState();

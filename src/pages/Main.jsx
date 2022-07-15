@@ -34,10 +34,10 @@ function Main() {
       console.log(SERVER_URL_MAIN_PAGE + category);
       const { data } = await axios.get(SERVER_URL_MAIN_PAGE + category);
       if (!data) return;
-      setChartList(makeList(data.chartList));
-      setOriginChartList(data.chartList);
+      setChartList(makeList(data.chartList));   // image 포함 list
+      setOriginChartList(data.chartList);       // search 후 list 노출
       // GRID
-      setGrid(makeDataTable(data.chartList));
+      //setGrid(makeDataTable(data.chartList)); // image 없는 list
     } catch (err) {
       console.log(`ERROR ::::: ${err}`);
     }
