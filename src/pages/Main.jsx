@@ -34,6 +34,7 @@ function Main() {
       console.log(SERVER_URL_MAIN_PAGE + category);
       const { data } = await axios.get(SERVER_URL_MAIN_PAGE + category);
       if (!data) return;
+      console.log("fetchData 2");
       setChartList(makeList(data.chartList));   // image 포함 list
       setOriginChartList(data.chartList);       // search 후 list 노출
       // GRID
@@ -94,6 +95,7 @@ function Main() {
           <button
             onClick={() => {
               const filtered = keyWordHistory.filter((keyword) => {
+                console.log(keyword + ", " + item);
                 return keyword != item;
               });
               setKeyWordHistory(filtered);
@@ -115,6 +117,7 @@ function Main() {
 
   // useEffect
   useEffect(() => {
+    console.log("useEffect");
     fetchData("domestic");
     setInterval(() => {
       setTime(setClock());
@@ -122,7 +125,9 @@ function Main() {
   }, [category]);
 
   // useEffect - 검색기록용
+  // 잠시 주석 처리
   useEffect(() => {
+    console.log("useEffect search");
     setKeywordHistoryList(makeKeywordHistoryList(keyWordHistory));
   }, [keyWordHistory]);
 
